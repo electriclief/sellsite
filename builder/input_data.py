@@ -129,8 +129,8 @@ def run_live_update():
 
 
 def launch_local_site():
-    """Launches dist/index.html in the default web browser."""
-    index_path = BASE_DIR / "dist" / "index.html"
+    """Launches docs/index.html in the default web browser."""
+    index_path = BASE_DIR / "docs" / "index.html"
     if index_path.exists():
         webbrowser.open(f"file://{index_path.absolute()}")
         return "Local site launched in your browser!"

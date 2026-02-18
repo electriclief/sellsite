@@ -8,8 +8,8 @@ import shutil
 # Get the absolute path to the 'sellsite' root directory (parent of 'builder')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE_PATH = os.path.join(BASE_DIR, 'database.yaml')
-IMAGE_OUTPUT_DIR = os.path.join(BASE_DIR, 'dist', 'images')
-JS_OUTPUT_PATH = os.path.join(BASE_DIR, 'dist', 'js', 'dataobject.js')
+IMAGE_OUTPUT_DIR = os.path.join(BASE_DIR, 'docs', 'images')
+JS_OUTPUT_PATH = os.path.join(BASE_DIR, 'docs', 'js', 'dataobject.js')
 MAX_SIZE = (800, 800)  # Maximum dimension for web-page size
 
 def ensure_dirs():
@@ -32,9 +32,9 @@ def process_image(image_path):
             img.thumbnail(MAX_SIZE, Image.Resampling.LANCZOS)
             img.save(output_path)
         
-        # Return the path relative to 'dist' (which will be the web root)
+        # Return the path relative to 'docs' (which will be the web root)
         # However, for dataobject.js, the path should likely be relative to index.html
-        # which is in 'dist'. So it should be 'images/filename'
+        # which is in 'docs'. So it should be 'images/filename'
         return f"images/{filename}"
     except Exception as e:
         print(f"Error processing image {image_path}: {e}")
