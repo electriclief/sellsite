@@ -1,0 +1,13 @@
+# Sample Item Format for SellSite
+# This is the format that items will be stored in database.yaml
+# Items are stored as an array of objects
+
+- image_path: "/path/to/image1.jpg"
+  name: "Product Name 1"
+  price: 99.99
+  description: "A brief description of the product"
+
+- image_path: "/path/to/image2.png"
+  name: "Product Name 2"
+  price: 49.50
+  description: "Another product description"

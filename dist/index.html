@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jim's stuff for Sale</title>
+    <link rel="stylesheet" href="css/default.css">
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <img src="images/logo.svg" alt="Jim's stuff for Sale Logo">
+            </div>
+            <nav>
+                <a href="#" id="nav-home">Go Back Home</a>
+            </nav>
+        </div>
+        <div class="contact-info">
+            Jim's Phone: 905-999-9999 | Email me: <a href="mailto:jim@gmail.com">jim@gmail.com</a>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- The magic happens here -->
+    </main>
+
+    <footer>
+        <p>This site was made with duct tape, glue, and a bit of hope.</p>
+        <p>&copy; 2026 Jim. All rights reserved (I guess).</p>
+    </footer>
+
+    <!-- Templates -->
+    <template id="item-card-template">
+        <div class="item-card">
+            <div class="item-info">
+                <h3 class="item-name"></h3>
+                <div class="item-price"></div>
+                <p class="item-description"></p>
+            </div>
+            <img src="" alt="" class="item-image">
+            <button class="view-details">Wanna see more?</button>
+        </div>
+    </template>
+
+    <template id="item-detail-template">
+        <div class="item-detail">
+            <div class="detail-nav">
+                <button class="back-button">Get me outta here!</button>
+                <div class="item-pagination">
+                    <button class="prev-button" id="prev-item">Previous Crap</button>
+                    <button class="next-button" id="next-item">Next Crap</button>
+                </div>
+            </div>
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h2 class="detail-name"></h2>
+                    <p class="detail-price"></p>
+                    <p class="detail-description"></p>
+                </div>
+                <div class="image-gallery">
+                    <!-- Images will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Load data first, then app logic -->
+    <script src="js/dataobject.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

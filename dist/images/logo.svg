@@ -1,0 +1,17 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cardboard background -->
+  <rect x="10" y="10" width="280" height="80" fill="#d2b48c" stroke="#a0522d" stroke-width="2" />
+  
+  <!-- Texture lines for cardboard -->
+  <line x1="10" y1="30" x2="290" y2="30" stroke="#c4a484" stroke-width="1" />
+  <line x1="10" y1="50" x2="290" y2="50" stroke="#c4a484" stroke-width="1" />
+  <line x1="10" y1="70" x2="290" y2="70" stroke="#c4a484" stroke-width="1" />
+
+  <!-- Duct tape top left -->
+  <rect x="0" y="0" width="40" height="20" fill="#808080" transform="rotate(-15 20 10)" opacity="0.8" />
+  <!-- Duct tape bottom right -->
+  <rect x="260" y="80" width="40" height="20" fill="#808080" transform="rotate(-15 280 90)" opacity="0.8" />
+
+  <!-- Text -->
+  <text x="150" y="60" font-family="Comic Sans MS, cursive, sans-serif" font-size="24" text-anchor="middle" fill="#222" font-weight="bold">Jim's stuff for Sale</text>
+</svg>
