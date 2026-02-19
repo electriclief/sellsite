@@ -19,16 +19,18 @@ body {
 
 header {
     background-color: #e6ccb2;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     border-bottom: 5px dashed var(--accent-color);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    gap: 1rem;
 }
 
-.logo-container img {
-    max-width: 220px;
+#logo-link img {
+    max-width: 140px; /* Even smaller for inline fit */
+    vertical-align: middle;
     filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));
 }
 
@@ -36,39 +38,43 @@ header {
     text-decoration: none;
 }
 
-.header-sub {
+.header-center {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    width: 100%;
 }
 
 .contact-info {
-    padding: 0.2rem 0.5rem;
+    padding: 0.1rem 0.3rem;
     background: #fff;
     border: 1px solid var(--accent-color);
     transform: rotate(-0.5deg);
-    font-size: 0.9rem;
+    font-size: 0.75rem; /* Small for mobile inline */
+    white-space: nowrap;
 }
 
 .filter-container {
     background: #fff;
-    padding: 0.2rem 0.5rem;
+    padding: 0.1rem 0.3rem;
     border: 1px solid var(--accent-color);
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
     font-family: inherit;
     font-weight: bold;
     transform: rotate(0.5deg);
+    flex-shrink: 0;
 }
 
 .filter-container select {
     font-family: inherit;
-    padding: 0.1rem;
+    padding: 0;
     background: transparent;
     border: none;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.8rem;
 }
 
 main {
