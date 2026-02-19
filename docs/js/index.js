@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app');
-    const navHome = document.getElementById('nav-home');
+    const logoLink = document.getElementById('logo-link');
     const itemCardTemplate = document.getElementById('item-card-template');
     const itemDetailTemplate = document.getElementById('item-detail-template');
     const filterContainer = document.getElementById('filter-container');
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.history.pushState({}, '', `?lot=${lotNumber}`);
     }
 
-    navHome.addEventListener('click', (e) => {
+    logoLink.addEventListener('click', (e) => {
         e.preventDefault();
         renderGallery();
     });
