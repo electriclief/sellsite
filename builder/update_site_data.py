@@ -8,7 +8,8 @@ import time
 # Configurations
 # Get the absolute path to the 'sellsite' root directory (parent of 'builder')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE_DIR, 'database.yaml')
+DATABASE_PATH = os.path.join(BASE_DIR, 'docs', 'database.yaml')
+SETTINGS_PATH = os.path.join(BASE_DIR, 'docs', 'setting.yaml')
 IMAGE_OUTPUT_DIR = os.path.join(BASE_DIR, 'docs', 'images')
 JS_OUTPUT_PATH = os.path.join(BASE_DIR, 'docs', 'js', 'dataobject.js')
 MAX_SIZE = (800, 800)  # Maximum dimension for web-page size
@@ -51,11 +52,15 @@ def process_image(image_path):
         print(f"Error processing image {image_path}: {e}")
         return None
 
-def update_js_data(items):
-    """Write the items to dataobject.js."""
+def update_js_data(items, categories=None):
+    """Write the items and categories to dataobject.js."""
     ensure_dirs()
+    data = {
+        "items": items,
+        "categories": categories or ["All"]
+    }
     with open(JS_OUTPUT_PATH, 'w', encoding='utf-8') as f:
-        f.write(f"const siteData = {json.dumps(items, indent=2)};")
+        f.write(f"const siteData = {json.dumps(data, indent=2)};")
     print(f"Successfully updated {JS_OUTPUT_PATH}")
 
 def main():
@@ -67,6 +72,12 @@ def main():
     
     with open(DATABASE_PATH, 'r', encoding='utf-8') as f:
         items = yaml.safe_load(f) or []
+
+    categories = ["All"]
+    if os.path.exists(SETTINGS_PATH):
+        with open(SETTINGS_PATH, 'r', encoding='utf-8') as f:
+            settings = yaml.safe_load(f) or {}
+            categories = settings.get('categories', ["All"])
     
     site_data = []
     updated_items = []
@@ -98,11 +109,12 @@ def main():
         updated_items.append(new_item)
     
     # Save processed items back to database.yaml if anything changed
+    # We always save to ensure consistency with processed paths
     with open(DATABASE_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(updated_items, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
     
     # Write to dataobject.js
-    update_js_data(site_data)
+    update_js_data(site_data, categories)
     
     print(f"Processed {len(site_data)} items.")
 

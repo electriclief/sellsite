@@ -20,8 +20,8 @@ except ImportError:
 
 # Paths
 BASE_DIR = Path(__file__).parent.parent
-DATABASE_YAML = BASE_DIR / "database.yaml"
-SETTINGS_YAML = BASE_DIR / "setting.yaml"
+DATABASE_YAML = BASE_DIR / "docs" / "database.yaml"
+SETTINGS_YAML = BASE_DIR / "docs" / "setting.yaml"
 
 
 def load_yaml_data(filepath):

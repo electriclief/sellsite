@@ -7,7 +7,7 @@ import shutil
 # Configurations
 # Get the absolute path to the 'sellsite' root directory (parent of 'builder')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE_DIR, 'database.yaml')
+DATABASE_PATH = os.path.join(BASE_DIR, 'docs', 'database.yaml')
 IMAGE_OUTPUT_DIR = os.path.join(BASE_DIR, 'docs', 'images')
 JS_OUTPUT_PATH = os.path.join(BASE_DIR, 'docs', 'js', 'dataobject.js')
 MAX_SIZE = (800, 800)  # Maximum dimension for web-page size

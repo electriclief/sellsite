@@ -68,10 +68,29 @@ header::after {
     background: #fff;
     border: 2px solid var(--accent-color);
     transform: rotate(-1deg);
-    font-size: 1.1rem;
-}
-
-nav a {
+            font-size: 1.1rem;
+    }
+    
+    .filter-container {
+        margin-top: 1rem;
+        background: #fff;
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--accent-color);
+        box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        font-family: inherit;
+        font-weight: bold;
+    }
+    
+    .filter-container select {
+        font-family: inherit;
+        padding: 0.2rem;
+        background: #fff;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    
+    nav a {
+    
     text-decoration: underline wavy var(--accent-color);
     color: var(--text-color);
     font-weight: bold;

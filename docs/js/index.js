@@ -3,15 +3,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const navHome = document.getElementById('nav-home');
     const itemCardTemplate = document.getElementById('item-card-template');
     const itemDetailTemplate = document.getElementById('item-detail-template');
+    const filterContainer = document.getElementById('filter-container');
+    const categoryFilter = document.getElementById('category-filter');
 
     // Use global siteData from dataobject.js
-    const data = typeof siteData !== 'undefined' ? siteData : [];
+    const data = typeof siteData !== 'undefined' ? (siteData.items || []) : [];
+    const categories = typeof siteData !== 'undefined' ? (siteData.categories || ["All"]) : ["All"];
+
+    // Populate filter dropdown
+    if (categoryFilter) {
+        categories.forEach(cat => {
+            const option = document.createElement('option');
+            option.value = cat;
+            option.textContent = cat;
+            categoryFilter.appendChild(option);
+        });
+
+        categoryFilter.addEventListener('change', () => {
+            renderGallery();
+        });
+    }
 
     function renderGallery() {
         app.innerHTML = '';
         app.style.display = 'grid'; // Ensure grid layout for gallery
+        if (filterContainer) filterContainer.style.display = 'block'; // Show filter on gallery page
+
+        const selectedCategory = categoryFilter ? categoryFilter.value : "All";
 
         data.forEach((item, index) => {
+            // Filter logic
+            if (selectedCategory !== "All") {
+                const itemCategories = item.Categories || [];
+                if (!itemCategories.includes(selectedCategory)) {
+                    return;
+                }
+            }
+
             const cardTemplate = itemCardTemplate.content.cloneNode(true);
             const card = cardTemplate.querySelector('.item-card');
             
@@ -44,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = data[index];
         app.innerHTML = '';
         app.style.display = 'block'; // Block layout for details
+        if (filterContainer) filterContainer.style.display = 'none'; // Hide filter on item page
 
         const detail = itemDetailTemplate.content.cloneNode(true);
         
