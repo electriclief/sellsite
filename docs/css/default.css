@@ -100,6 +100,7 @@ main {
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .item-card:nth-child(even) {
@@ -166,38 +167,6 @@ main {
     font-size: 0.9rem;
 }
 
-.view-details {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-family: inherit;
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-top: auto;
-    box-shadow: 3px 3px 0px black;
-    position: relative;
-    align-self: stretch;
-}
-
-/* Glue blob */
-.view-details::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    right: 10px;
-    width: 15px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    filter: blur(1px);
-}
-
-.view-details:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px black;
-}
-
 /* Detail View Styles */
 .detail-nav {
     display: flex;
@@ -251,9 +220,20 @@ main {
     transform: rotate(0.5deg);
 }
 
+.detail-lot {
+    background: #333;
+    color: white;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    font-weight: bold;
+    transform: rotate(-2deg);
+    margin-bottom: 1rem;
+}
+
 .detail-info h2 {
     font-size: 2.5rem;
     border-bottom: 3px double var(--accent-color);
+    margin-top: 0;
 }
 
 .detail-price {

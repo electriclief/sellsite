@@ -33,9 +33,11 @@ Create a "duct tape and glue" themed marketplace for selling Jim's items.
 - [ ] Implement item saving to local storage/database
 
 ### Step 3: Create Frontend
-- [ ] Create HTML structure for item display
-- [ ] Build CSS styling for the website
-- [ ] Create JavaScript for rendering items
+- [x] Create HTML structure for item display
+- [x] Build CSS styling for the website
+- [x] Create JavaScript for rendering items
+- [x] Add clickable item cards and Lot # display
+- [x] Implement URL-based navigation (?lot=)
 - [ ] Add cart functionality
 
 ### Step 4: Integration

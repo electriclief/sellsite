@@ -93,11 +93,20 @@ def add_to_temp_list(files, current_list):
 
 
 def clear_temp_list():
-    """Clear the temporary image list."""
-    return [], [], None, None
+    """Clear the temporary image list and categories."""
+    return [], [], None, None, ["All"], "### Selected Categories: All"
 
 
-def create_item(image_paths, name, price, description, category):
+def add_category_to_list(category, current_categories):
+    """Add a category to the list if not already present."""
+    if category and category not in current_categories:
+        current_categories.append(category)
+    
+    display_text = "### Selected Categories: " + ", ".join(current_categories)
+    return current_categories, display_text
+
+
+def create_item(image_paths, name, price, description, categories):
     """
     Create a new item and save it to database.yaml
     """
@@ -110,6 +119,8 @@ def create_item(image_paths, name, price, description, category):
             None,
             None,
             get_next_lot_number(),
+            ["All"],
+            "### Selected Categories: All",
         )
 
     # Process images immediately (resize and move to docs/images)
@@ -133,7 +144,7 @@ def create_item(image_paths, name, price, description, category):
         "price": price,
         "description": description,
         "lot #": lot_number_str,
-        "Categories": [category] if isinstance(category, str) else category,
+        "Categories": categories,
     }
 
     # Load existing data
@@ -159,6 +170,8 @@ def create_item(image_paths, name, price, description, category):
         None,
         None,
         get_next_lot_number(),
+        ["All"],
+        "### Selected Categories: All",
     )
 
 
@@ -229,8 +242,9 @@ def launch_local_site():
 
 # Create Gradio interface
 with gr.Blocks(title="SellSite Item Builder") as demo:
-    # State for temporary image paths
+    # State for temporary image paths and categories
     temp_images_state = gr.State([])
+    temp_categories_state = gr.State(["All"])
 
     # Load categories for selection
     settings = load_settings()
@@ -251,9 +265,13 @@ with gr.Blocks(title="SellSite Item Builder") as demo:
                 label="Product Name", placeholder="Enter product name", lines=1
             )
 
-            category_input = gr.Dropdown(
-                label="Category", choices=available_categories, value="All"
-            )
+            with gr.Row():
+                category_input = gr.Dropdown(
+                    label="Category", choices=available_categories, value="All", scale=2
+                )
+                add_category_btn = gr.Button("Add Category", scale=1)
+
+            categories_display = gr.Markdown("### Selected Categories: All")
 
             price_input = gr.Number(label="Price ($)", value=0.00, precision=2)
             description_input = gr.Textbox(
@@ -324,13 +342,19 @@ with gr.Blocks(title="SellSite Item Builder") as demo:
         outputs=[temp_images_state, temp_gallery, camera_input],
     )
 
+    add_category_btn.click(
+        fn=add_category_to_list,
+        inputs=[category_input, temp_categories_state],
+        outputs=[temp_categories_state, categories_display],
+    )
+
     clear_temp_btn.click(
-        fn=clear_temp_list, outputs=[temp_images_state, temp_gallery, file_input, camera_input]
+        fn=clear_temp_list, outputs=[temp_images_state, temp_gallery, file_input, camera_input, temp_categories_state, categories_display]
     )
 
     create_button.click(
         fn=create_item,
-        inputs=[temp_images_state, name_input, price_input, description_input, category_input],
+        inputs=[temp_images_state, name_input, price_input, description_input, temp_categories_state],
         outputs=[
             status_output,
             items_output,
@@ -339,6 +363,8 @@ with gr.Blocks(title="SellSite Item Builder") as demo:
             file_input,
             camera_input,
             lot_display,
+            temp_categories_state,
+            categories_display,
         ],
     )
 

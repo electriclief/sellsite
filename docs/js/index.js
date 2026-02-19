@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         app.style.display = 'grid'; // Ensure grid layout for gallery
 
         data.forEach((item, index) => {
-            const card = itemCardTemplate.content.cloneNode(true);
+            const cardTemplate = itemCardTemplate.content.cloneNode(true);
+            const card = cardTemplate.querySelector('.item-card');
             
             // Handle both image_path and images list
             let mainImage = '';
@@ -30,11 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
             card.querySelector('.item-price').textContent = `$${parseFloat(item.price).toFixed(2)}`;
             card.querySelector('.item-description').textContent = item.description;
 
-            const viewButton = card.querySelector('.view-details');
-            viewButton.addEventListener('click', () => renderDetail(index));
+            card.addEventListener('click', () => renderDetail(index));
 
             app.appendChild(card);
         });
+        
+        // Clean URL when back to gallery
+        window.history.pushState({}, '', window.location.pathname);
     }
 
     function renderDetail(index) {
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const detail = itemDetailTemplate.content.cloneNode(true);
         
+        const lotNumber = item['lot #'] || (index + 1);
+        detail.querySelector('.detail-lot').textContent = `Lot #${lotNumber}`;
         detail.querySelector('.detail-name').textContent = item.name;
         detail.querySelector('.detail-price').textContent = `$${parseFloat(item.price).toFixed(2)}`;
         detail.querySelector('.detail-description').textContent = item.description;
@@ -92,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         app.appendChild(detail);
+        
+        // Update URL with lot number
+        window.history.pushState({}, '', `?lot=${lotNumber}`);
     }
 
     navHome.addEventListener('click', (e) => {
@@ -100,5 +108,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initial render
-    renderGallery();
+    const urlParams = new URLSearchParams(window.location.search);
+    const lotParam = urlParams.get('lot');
+    
+    if (lotParam) {
+        const lotIndex = data.findIndex(item => item['lot #'] === lotParam);
+        if (lotIndex !== -1) {
+            renderDetail(lotIndex);
+        } else {
+            // Try numeric index if lot number doesn't match
+            const idx = parseInt(lotParam) - 1;
+            if (idx >= 0 && idx < data.length) {
+                renderDetail(idx);
+            } else {
+                renderGallery();
+            }
+        }
+    } else {
+        renderGallery();
+    }
 });
