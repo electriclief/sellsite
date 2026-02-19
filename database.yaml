@@ -2,9 +2,13 @@
   name: jimface
   price: 500
   description: a picture of jims face
+  lot #: '0001'
+  Categories: ['All']
 - images:
-  - C:\Users\Leafdriving\AppData\Local\Temp\gradio\44b34132ef7aeae4864a7c2e7d0d9a43e7d3888ac1d6f7eba8417d52cabec86d\ThePrimeDirective_Qwen2.png
-  - C:\Users\Leafdriving\AppData\Local\Temp\gradio\8c6da04f42623e4780ee3ad5251d12005e1b88537b8f5dbca65336aedeed6ca3\Jim_720_480.png
+  - images/ThePrimeDirective_Qwen2_1771422964121.png
+  - images/Jim_720_480_1771422964441.png
   name: This is better
   price: 1000
   description: way better
+  lot #: '0002'
+  Categories: ['All']

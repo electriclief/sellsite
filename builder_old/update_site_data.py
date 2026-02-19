@@ -3,7 +3,6 @@ import os
 from PIL import Image
 import json
 import shutil
-import time
 
 # Configurations
 # Get the absolute path to the 'sellsite' root directory (parent of 'builder')
@@ -20,24 +19,12 @@ def ensure_dirs():
 
 def process_image(image_path):
     """Resize image and save to output directory. Returns the new relative path."""
-    if not image_path:
+    if not image_path or not os.path.exists(image_path):
         return None
     
-    # If it's already a relative path to an existing image in docs/images, return it
-    if image_path.startswith("images/"):
-        full_path = os.path.join(BASE_DIR, "docs", image_path)
-        if os.path.exists(full_path):
-            return image_path
-            
-    if not os.path.exists(image_path):
-        return None
-    
-    # Generate a unique filename to avoid collisions
-    original_filename = os.path.basename(image_path)
-    name, ext = os.path.splitext(original_filename)
-    # Add timestamp for uniqueness
-    unique_name = f"{name}_{int(time.time() * 1000)}{ext}"
-    output_path = os.path.join(IMAGE_OUTPUT_DIR, unique_name)
+    filename = os.path.basename(image_path)
+    # Ensure a unique filename if necessary, but for now we'll just use the original
+    output_path = os.path.join(IMAGE_OUTPUT_DIR, filename)
     
     try:
         with Image.open(image_path) as img:
@@ -45,18 +32,13 @@ def process_image(image_path):
             img.thumbnail(MAX_SIZE, Image.Resampling.LANCZOS)
             img.save(output_path)
         
-        # Return the path relative to 'docs'
-        return f"images/{unique_name}"
+        # Return the path relative to 'docs' (which will be the web root)
+        # However, for dataobject.js, the path should likely be relative to index.html
+        # which is in 'docs'. So it should be 'images/filename'
+        return f"images/{filename}"
     except Exception as e:
         print(f"Error processing image {image_path}: {e}")
         return None
-
-def update_js_data(items):
-    """Write the items to dataobject.js."""
-    ensure_dirs()
-    with open(JS_OUTPUT_PATH, 'w', encoding='utf-8') as f:
-        f.write(f"const siteData = {json.dumps(items, indent=2)};")
-    print(f"Successfully updated {JS_OUTPUT_PATH}")
 
 def main():
     ensure_dirs()
@@ -65,23 +47,19 @@ def main():
         print(f"Error: {DATABASE_PATH} not found.")
         return
     
-    with open(DATABASE_PATH, 'r', encoding='utf-8') as f:
+    with open(DATABASE_PATH, 'r') as f:
         items = yaml.safe_load(f) or []
     
     site_data = []
-    updated_items = []
     
     for item in items:
         new_item = item.copy()
-        item_changed = False
         
-        # Handle 'image_path' field (legacy or single image)
+        # Handle 'image_path' field
         if 'image_path' in new_item and new_item['image_path']:
             processed_path = process_image(new_item['image_path'])
             if processed_path:
-                if new_item['image_path'] != processed_path:
-                    new_item['image_path'] = processed_path
-                    item_changed = True
+                new_item['image_path'] = processed_path
         
         # Handle 'images' field (list of images)
         if 'images' in new_item and isinstance(new_item['images'], list):
@@ -90,21 +68,15 @@ def main():
                 processed_path = process_image(img_path)
                 if processed_path:
                     new_images_list.append(processed_path)
-                    if img_path != processed_path:
-                        item_changed = True
             new_item['images'] = new_images_list
             
         site_data.append(new_item)
-        updated_items.append(new_item)
-    
-    # Save processed items back to database.yaml if anything changed
-    with open(DATABASE_PATH, 'w', encoding='utf-8') as f:
-        yaml.dump(updated_items, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
     
     # Write to dataobject.js
-    update_js_data(site_data)
+    with open(JS_OUTPUT_PATH, 'w') as f:
+        f.write(f"const siteData = {json.dumps(site_data, indent=2)};")
     
-    print(f"Processed {len(site_data)} items.")
+    print(f"Successfully updated {JS_OUTPUT_PATH} and processed images.")
 
 if __name__ == "__main__":
     main()

@@ -7,8 +7,8 @@ const siteData = [
   },
   {
     "images": [
-      "images/ThePrimeDirective_Qwen2.png",
-      "images/Jim_720_480.png"
+      "images/ThePrimeDirective_Qwen2_1771422964121.png",
+      "images/Jim_720_480_1771422964441.png"
     ],
     "name": "This is better",
     "price": 1000,
