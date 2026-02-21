@@ -1,17 +1,3 @@
-- image_path: ''
-  name: jimface
-  price: 500
-  description: '## lets see if this works
-
-
-    - this is a test
-
-    - looks good!
-
-    '
-  'lot #': '0001'
-  Categories:
-  - All
 - images:
   - images/lot0002_01.png
   - images/lot0002_02.png
@@ -287,5 +273,248 @@
     \  \n- CPU: Pentium T440 @ 2.2GHz  \n- Memory: 4GB RAM  \n- Storage: 135GB HDD\
     \  \nContact us now to start your digital journey!  \n"
   'lot #': 0009
+  Categories:
+  - All
+- images:
+  - images/lot0010_01.jpg
+  - images/lot0010_02.jpg
+  - images/lot0010_03.jpg
+  name: Hp pavilion g series
+  price: 160
+  description: Tba
+  'lot #': '0010'
+  Categories:
+  - All
+  - Laptops
+  - Computers
+- images:
+  - images/lot0011_01.jpg
+  name: Toshiba Hard Drive - 200GB
+  price: 100
+  description: '"Vintage Toshiba Hard Drive - MK2035GS - 200GB! – S/N 97SVFENDS 998
+    EC.A. Great for building or restoration projects. Passed testing. [Price] - DM
+    for details!"
+
+
+    Option 2 (Slightly More Detailed):
+
+
+    “Looking for a Reliable Storage Solution? We''re selling a Toshiba MK2035GS 200GB
+    HDD (Model: HDD2A30B ZK01). DC75V 1.0A. Passed testing. S/N 97SVFENDS 998 EC.A.
+    Great for retro builds or backup. Contact us for pricing and details.”
+
+
+    Key elements included:
+
+
+    Brand & Model: Toshiba MK2035GS
+
+    Capacity: 200GB
+
+    Serial Number: (Included to enhance value & tracking)
+
+    DC75V Voltage: Important for compatibility.
+
+    “Passed Testing”: Assures a buyer it''s operational.
+
+    '
+  'lot #': '0011'
+  Categories:
+  - All
+  - Hard Drives
+  - Computers
+- images:
+  - images/lot0012_01.jpg
+  name: Hitachi Hard Drive – 60GB
+  price: 100
+  description: '“Hitachi Global Storage Technologies 5K250-60 Hard Drive – 60GB, 5400RPM,
+    SATA. Passed testing. Ideal for building servers or expanding storage capacity.
+    MLC - DA2218, Warranty void if any label is damaged. Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Brand & Model: Hitachi Global Storage Technologies 5K250-60
+
+    Capacity: 60GB
+
+    RPM: 5400
+
+    Interface: SATA
+
+    Testing Status: “Passed” – A key selling point!
+
+    MLC Info: (DA2218) - Indicates the type of memory for data density.
+
+    Warranty Note: (Void if label damaged) – Important to highlight.
+
+    '
+  'lot #': '0012'
+  Categories:
+  - All
+- images:
+  - images/lot0013_01.jpg
+  name: Western Digital 120GB – SATA drive
+  price: 100
+  description: '“Western Digital WD1200BEVS 120GB – ATA drive with serial number X8C807000973.
+    Model ICES-003, Class B / NMB-003. Passed testing. This drive is ideal for server
+    use, storage expansion, or reliable backups. Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Manufacturer: Western Digital
+
+    Model Number: WD1200BEVS
+
+    Capacity: 120GB
+
+    Interface: ATA
+
+    Serial Number: X8C807000973 - Crucial for tracking
+
+    Class/Grade: ICES-003 Class B/NMB-003 – Indicates its intended use and quality.
+
+    Pass Test: Highlights its operational status.
+
+    '
+  'lot #': '0013'
+  Categories:
+  - All
+- images:
+  - images/lot0014_01.jpg
+  name: Hitachi 250GB HDD
+  price: 100
+  description: '“Hitachi Global Storage Technologies 5K320-250GB HDD (Model: N13508
+    E182115 T). Serial Number: 090630F B2E06YKHLLGTC. 5400RPM, SATA. Passed testing.
+    Reliable storage solution. Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Manufacturer: Hitachi Global Storage Technologies
+
+    Model Number: N13508 E182115 T
+
+    Capacity: 250GB
+
+    RPM: 5400
+
+    Interface: SATA
+
+    Serial Number: 090630F B2E06YKHLLGTC - Crucial for tracking
+
+    Warranty Note: "Warranty void if any label is removed or broken" – Important to
+    highlight!
+
+    '
+  'lot #': '0014'
+  Categories:
+  - All
+- images:
+  - images/lot0015_01.jpg
+  name: Western Digital 250GB SATA HDD
+  price: 100
+  description: '“Western Digital WD2500BEVT 250GB – SATA HDD, 55BA, 70L469. Passed
+    testing. This drive is ideal for server use, storage expansion, or reliable backups.
+    Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Manufacturer: Western Digital
+
+    Model Number: WD2500BEVT
+
+    Capacity: 250GB
+
+    Interface: SATA
+
+    Serial Number: XWD0071469 - Crucial for tracking
+
+    Rotation Speed: 55BA - Indicates the speed of the drive.
+
+    '
+  'lot #': '0015'
+  Categories:
+  - All
+- images:
+  - images/lot0016_01.jpg
+  name: Seagate Momentus Thin 320GB SATA drive
+  price: 100
+  description: '“Seagate Momentus Thin 320GB – SATA drive (Model: 5000C5006D840E73).
+    Serial Number: 691917-002. Passing performance. Ideal for various storage needs.
+    Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Brand & Model: Seagate Momentus Thin
+
+    Capacity: 320GB
+
+    Interface: SATA
+
+    Serial Number: 691917-002 - Crucial for tracking
+
+    Rotation Speed: 5V 0.55A - Indicates the speed of the drive.
+
+    '
+  'lot #': '0016'
+  Categories:
+  - All
+- images:
+  - images/lot0017_01.jpg
+  name: Western Digital 320GB SATA HDD
+  price: 100
+  description: '“Western Digital WD3200BPTV - 320GB SATA HDD (Model: 22ESTO). Serial
+    Number: WX21AA0X6657. Passed testing. Reliable storage for various applications.
+    Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Manufacturer: Western Digital
+
+    Model Number: WD3200BPTV
+
+    Capacity: 320GB
+
+    Interface: SATA
+
+    Serial Number: WX21AA0X6657 - Crucial for tracking
+
+    '
+  'lot #': '0017'
+  Categories:
+  - All
+- images:
+  - images/lot0018_01.jpg
+  name: HGST 500GB - SATA HDD
+  price: 100
+  description: '“HGST 500GB - 5400RPM SATA HDD (Model: HGST TB-TSSA500(B)). Serial
+    Number: 128T85134NGSD18N. Passed testing. Reliable storage solution for your needs.
+    Inquire for pricing!”
+
+
+    Key elements included:
+
+
+    Brand: HGST (Hitachi Global Storage Technologies)
+
+    Capacity: 500GB
+
+    RPM: 5400
+
+    Interface: SATA
+
+    '
+  'lot #': 0018
   Categories:
   - All

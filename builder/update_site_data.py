@@ -11,13 +11,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE_PATH = os.path.join(BASE_DIR, 'docs', 'database.yaml')
 SETTINGS_PATH = os.path.join(BASE_DIR, 'docs', 'setting.yaml')
 IMAGE_OUTPUT_DIR = os.path.join(BASE_DIR, 'docs', 'images')
-JS_OUTPUT_PATH = os.path.join(BASE_DIR, 'docs', 'js', 'dataobject.js')
 MAX_SIZE = (800, 800)  # Maximum dimension for web-page size
 
 def ensure_dirs():
     """Ensure output directories exist."""
     os.makedirs(IMAGE_OUTPUT_DIR, exist_ok=True)
-    os.makedirs(os.path.dirname(JS_OUTPUT_PATH), exist_ok=True)
 
 def process_image(image_path, lot_number=None, index=1):
     """Resize image and save to output directory using lot number convention. Returns the new relative path."""
@@ -70,17 +68,6 @@ def process_image(image_path, lot_number=None, index=1):
         print(f"Error processing image {image_path}: {e}")
         return None
 
-def update_js_data(items, categories=None):
-    """Write the items and categories to dataobject.js."""
-    ensure_dirs()
-    data = {
-        "items": items,
-        "categories": categories or ["All"]
-    }
-    with open(JS_OUTPUT_PATH, 'w', encoding='utf-8') as f:
-        f.write(f"const siteData = {json.dumps(data, indent=2)};")
-    print(f"Successfully updated {JS_OUTPUT_PATH}")
-
 def main():
     ensure_dirs()
     
@@ -97,12 +84,10 @@ def main():
             settings = yaml.safe_load(f) or {}
             categories = settings.get('categories', ["All"])
     
-    site_data = []
     updated_items = []
     
     for item in items:
         new_item = item.copy()
-        item_changed = False
         lot_num = new_item.get('lot #', '0000')
         
         # Handle 'image_path' field (legacy or single image)
@@ -111,7 +96,6 @@ def main():
             if processed_path:
                 if new_item['image_path'] != processed_path:
                     new_item['image_path'] = processed_path
-                    item_changed = True
         
         # Handle 'images' field (list of images)
         if 'images' in new_item and isinstance(new_item['images'], list):
@@ -120,22 +104,32 @@ def main():
                 processed_path = process_image(img_path, lot_number=lot_num, index=i+1)
                 if processed_path:
                     new_images_list.append(processed_path)
-                    if img_path != processed_path:
-                        item_changed = True
             new_item['images'] = new_images_list
             
-        site_data.append(new_item)
         updated_items.append(new_item)
     
-    # Save processed items back to database.yaml if anything changed
-    # We always save to ensure consistency with processed paths
+    # Save processed items back to database.yaml
     with open(DATABASE_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(updated_items, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
     
-    # Write to dataobject.js
-    update_js_data(site_data, categories)
+    # Export to JS for CORS-free local viewing
+    export_to_js(updated_items, categories)
     
-    print(f"Processed {len(site_data)} items.")
+    print(f"Processed {len(updated_items)} items.")
+
+def export_to_js(items, categories):
+    """Save data as JS files to bypass CORS on local file:// access."""
+    db_js_path = os.path.join(BASE_DIR, 'docs', 'database.js')
+    setting_js_path = os.path.join(BASE_DIR, 'docs', 'setting.js')
+    
+    with open(db_js_path, 'w', encoding='utf-8') as f:
+        f.write(f"window.database = {json.dumps(items, indent=2, ensure_ascii=False)};")
+    
+    settings_data = {'categories': categories}
+    with open(setting_js_path, 'w', encoding='utf-8') as f:
+        f.write(f"window.setting = {json.dumps(settings_data, indent=2, ensure_ascii=False)};")
+    
+    print("Exported data to JS files.")
 
 if __name__ == "__main__":
     main()

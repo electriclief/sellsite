@@ -158,7 +158,7 @@ def create_item(image_paths, name, price, description, categories):
     settings["last_lot_number"] = next_lot
     save_settings(settings)
 
-    # Update dataobject.js immediately
+    # Update site data immediately
     update_site_data.main()
 
     # Return success status, updated table, cleared temp list, and cleared file input
@@ -184,7 +184,7 @@ def delete_item(index):
     if items and 0 <= idx_to_delete < len(items):
         deleted_item = items.pop(idx_to_delete)
         save_yaml_data(DATABASE_YAML, items)
-        # Update dataobject.js
+        # Update site data
         update_site_data.main()
         return f"Deleted: {deleted_item.get('name', 'N/A')}", get_items_table()
     return "Invalid index", get_items_table()

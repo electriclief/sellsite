@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const app = document.getElementById('app');
     const logoLink = document.getElementById('logo-link');
     const itemCardTemplate = document.getElementById('item-card-template');
@@ -6,12 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterContainer = document.getElementById('filter-container');
     const categoryFilter = document.getElementById('category-filter');
 
-    // Use global siteData from dataobject.js
-    const data = typeof siteData !== 'undefined' ? (siteData.items || []) : [];
-    const categories = typeof siteData !== 'undefined' ? (siteData.categories || ["All"]) : ["All"];
+    let data = window.database || [];
+    let categories = (window.setting && window.setting.categories) ? window.setting.categories : ["All"];
+
+    // Fetch and parse YAML data as fallback
+    if (data.length === 0 || categories.length === 1) {
+        try {
+            const [dbResponse, settingsResponse] = await Promise.all([
+                fetch("database.yaml"),
+                fetch("setting.yaml")
+            ]);
+
+            if (dbResponse.ok) {
+                const dbText = await dbResponse.text();
+                data = jsyaml.load(dbText) || [];
+            }
+
+            if (settingsResponse.ok) {
+                const settingsText = await settingsResponse.text();
+                const settings = jsyaml.load(settingsText) || {};
+                categories = settings.categories || ["All"];
+            }
+        } catch (error) {
+            console.warn("Could not fetch YAML files, using script-injected data instead (this is normal for local file:// access).", error);
+        }
+    }
 
     // Populate filter dropdown
     if (categoryFilter) {
+        // Clear existing options (if any)
+        categoryFilter.innerHTML = '';
         categories.forEach(cat => {
             const option = document.createElement('option');
             option.value = cat;
