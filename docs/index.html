@@ -3,8 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Jim's stuff for Sale</title>
     <link rel="stylesheet" href="css/default.css">
+    <script>
+    // Detect if opened via file:// and show helpful message
+    if (window.location.protocol === 'file:') {
+        document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Server Required</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        max-width: 600px;
+                        margin: 50px auto;
+                        padding: 20px;
+                        background: #1a1a2e;
+                        color: #eee;
+                    }
+                    .warning {
+                        background: #e74c3c;
+                        color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        margin-bottom: 20px;
+                    }
+                    .steps {
+                        background: #16213e;
+                        padding: 20px;
+                        border-radius: 8px;
+                        border-left: 4px solid #3498db;
+                    }
+                    .steps h2 { margin-top: 0; color: #3498db; }
+                    .steps ol { line-height: 2; }
+                    code {
+                        background: #0f3460;
+                        padding: 2px 8px;
+                        border-radius: 4px;
+                        font-family: Consolas, monospace;
+                    }
+                    .note {
+                        background: #f39c12;
+                        color: #000;
+                        padding: 10px;
+                        border-radius: 4px;
+                        margin-top: 15px;
+                        font-weight: bold;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="warning">
+                    <h1>⚠️ Web Server Required</h1>
+                    <p>This site cannot run directly from the file system. It needs a web server to load data files.</p>
+                </div>
+                <div class="steps">
+                    <h2>How to Start the Server:</h2>
+                    <ol>
+                        <li>Run <code>launch_static_server.bat</code> from the project folder</li>
+                        <li>Wait for "Serving HTTP on :: port 8000"</li>
+                        <li>Open <a href="http://localhost:8000" style="color: #3498db;">http://localhost:8000</a> in your browser</li>
+                    </ol>
+                    <div class="note">
+                        💡 Keep the terminal window open while browsing. Close it when done.
+                    </div>
+                </div>
+            </body>
+            </html>
+        `);
+        document.close();
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -17,8 +91,9 @@
             <a href="#" id="logo-link">
                 <img src="images/logo.svg" alt="Jim's stuff for Sale Logo">
             </a>
-            <div class="contact-info">
-                905-999-9999 | <a href="mailto:jim@gmail.com">jim@gmail.com</a>
+            <div class="header-title">Jim's stuff for Sale</div>
+            <div class="contact-info" id="contact-info">
+                Loading...
             </div>
         </div>
         <div class="eagle-container">
@@ -71,14 +146,18 @@
 
     <!-- Load data first, then app logic -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    // Cache-busting version parameter
+    const CACHE_BUSTER = '?v=' + Date.now();
+    </script>
     <script src="js/js-yaml.min.js"></script>
     <script>
     /* Direct YAML fetch to replace .js exports */
     async function loadData() {
         try {
             const [dbRes, settingsRes] = await Promise.all([
-                fetch("database.yaml"),
-                fetch("setting.yaml")
+                fetch("database.yaml" + CACHE_BUSTER),
+                fetch("setting.yaml" + CACHE_BUSTER)
             ]);
             
             if (dbRes.ok) {
@@ -110,7 +189,11 @@
     
     // Ensure data is loaded before app script runs
     window.dataPromise = loadData();
+    
+    // Dynamically load index.js with cache-busting
+    const appScript = document.createElement('script');
+    appScript.src = 'js/index.js' + CACHE_BUSTER;
+    document.body.appendChild(appScript);
     </script>
-    <script src="js/index.js"></script>
 </body>
 </html>

@@ -1,8 +1,15 @@
-document.addEventListener('DOMContentLoaded', async () => {
+// Run immediately when script loads (DOMContentLoaded already fired when loaded dynamically)
+(async () => {
+    console.log('index.js loaded');
+    
     // Wait for YAML data to be fetched if promise exists
     if (window.dataPromise) {
+        console.log('Waiting for dataPromise...');
         await window.dataPromise;
+        console.log('dataPromise resolved');
     }
+
+    console.log('Data loaded:', { database: window.database, setting: window.setting });
 
     const app = document.getElementById('app');
     const logoLink = document.getElementById('logo-link');
@@ -10,9 +17,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     const itemDetailTemplate = document.getElementById('item-detail-template');
     const filterContainer = document.getElementById('filter-container');
     const categoryFilter = document.getElementById('category-filter');
+    const contactInfo = document.getElementById('contact-info');
+
+    console.log('contactInfo element:', contactInfo);
 
     let data = window.database || [];
     let categories = (window.setting && window.setting.categories) ? window.setting.categories : ["All"];
+    let jimPhone = (window.setting && window.setting.jim_phone) ? window.setting.jim_phone : "555-0199";
+    let jimEmail = (window.setting && window.setting.jim_email) ? window.setting.jim_email : "jim@example.com";
+
+    console.log('Contact info:', { jimPhone, jimEmail });
+
+    // Update contact info in header
+    if (contactInfo) {
+        const html = `${jimPhone} | <a href="mailto:${jimEmail}">${jimEmail}</a>`;
+        console.log('Setting contact HTML:', html);
+        contactInfo.innerHTML = html;
+    } else {
+        console.error('contactInfo element not found!');
+    }
 
     // Populate filter dropdown
     if (categoryFilter) {
@@ -167,4 +190,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         renderGallery();
     }
-});
+})();

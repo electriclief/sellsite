@@ -15,13 +15,13 @@
   price: 150
   description: "## \U0001F525 **ASUS LAPTOP – Running \"Windows Tiny 11\" – $150**\n\
     ---\n\n### Is this the right computer for you? *(Plain English)*\n\nThink of this\
-    \ machine as a **lightweight workhorse**. It’s built for everyday life, not high-end\
+    \ machine as a **lightweight workhorse**. It's built for everyday life, not high-end\
     \ gaming.\n\n---\n\n### ✅ What it does:\n- Perfect for **browsing the internet**\n\
     - Watching movies (**Netflix / YouTube**)\n- Writing school papers\n- Checking\
     \ email\n- Listening to Spotify\n\n### ❌ What it doesn't do:\n- It is **not a\
-    \ gaming PC**\n- It won’t run the latest heavy video games *(like Cyberpunk or\
+    \ gaming PC**\n- It won't run the latest heavy video games *(like Cyberpunk or\
     \ high-end shooters)*\n- It **does** handle web-based games just fine\n\n---\n\
-    \n### \U0001F4A1 Why it’s special:\nIt runs on a stripped-down version of Windows\
+    \n### \U0001F4A1 Why it's special:\nIt runs on a stripped-down version of Windows\
     \ 11 called **\"Tiny 11.\"**  \nThis removes the heavy, slow programs from new\
     \ computers, making it feel **incredibly snappy and responsive** for an older\
     \ machine.\n\n---\n\n## \U0001F9E0 The Nitty Gritty *(Condensed Specs)*\n\n- **OS:**\
@@ -32,7 +32,8 @@
     \ documents\n- **Graphics:** Intel HD Graphics – Great for watching video and\
     \ standard screen usage\n- **Screen:** 1600x900 Resolution\n\n---\n\n## \U0001F4B0\
     \ Grab this Deal!\n\n- **Price:** $150\n- **Contact:** Call or Email to co-ordinate\
-    \ a pickup!\n\n''lot #'': ''0004''\n"
+    \ a pickup!\n"
+  'lot #': '0004'
   Categories:
   - All
 - images:
@@ -255,7 +256,7 @@
     - **Condition:** **Used, but still standing** (like a zombie at a funeral)
 
     '
-  'lot #': 0008
+  'lot #': '0008'
   Categories:
   - All
 - images:
@@ -268,11 +269,11 @@
     \ to your new digital assistant! This machine handles transactions, manages files,\
     \ and keeps things smooth—*but not for fixing broken keyboards or software glitches*.\
     \  \n\n**What It Can Do:**  \n✅ Process payments & transactions  \n✅ Store files\
-    \ securely  \n✅ Run apps effortlessly  \n\n**What It Can’t Do:**  \n❌ Repair hardware\
+    \ securely  \n✅ Run apps effortlessly  \n\n**What It Can't Do:**  \n❌ Repair hardware\
     \  \n❌ Handle complex tasks  \n❌ Fix software errors  \n\n**Specs Simplified:**\
     \  \n- CPU: Pentium T440 @ 2.2GHz  \n- Memory: 4GB RAM  \n- Storage: 135GB HDD\
     \  \nContact us now to start your digital journey!  \n"
-  'lot #': 0009
+  'lot #': '0009'
   Categories:
   - All
 - images:
@@ -515,6 +516,14 @@
     Interface: SATA
 
     '
-  'lot #': 0018
+  'lot #': '0018'
+  Categories:
+  - All
+- images:
+  - images/lot0019_01.jpg
+  name: I7 Low end gaming rig
+  price: 750
+  description: Tba
+  'lot #': '0019'
   Categories:
   - All
