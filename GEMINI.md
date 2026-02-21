@@ -31,7 +31,7 @@ Create a "duct tape and glue" themed marketplace for selling Jim's items.
 - [x] Add image upload functionality
 - [x] Add product details form
 - [x] Implement item saving to local storage/database
-- [x] Added JS export to bypass CORS (database.js, setting.js)
+- [x] Switched to direct YAML fetch for data loading (database.yaml, setting.yaml)
 
 ### Step 3: Create Frontend
 - [x] Create HTML structure for item display
@@ -55,3 +55,4 @@ Create a "duct tape and glue" themed marketplace for selling Jim's items.
 
 ## Technical Notes
 - **Server Binding**: The builder application (`input_data.py`) must be hardcoded to `192.168.1.100` to ensure local network accessibility for mobile devices.
+- **Data Loading**: Frontend fetches `database.yaml` and `setting.yaml` directly using `js-yaml.min.js`.

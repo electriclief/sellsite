@@ -71,9 +71,46 @@
 
     <!-- Load data first, then app logic -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
-    <script src="database.js"></script>
-    <script src="setting.js"></script>
+    <script src="js/js-yaml.min.js"></script>
+    <script>
+    /* Direct YAML fetch to replace .js exports */
+    async function loadData() {
+        try {
+            const [dbRes, settingsRes] = await Promise.all([
+                fetch("database.yaml"),
+                fetch("setting.yaml")
+            ]);
+            
+            if (dbRes.ok) {
+                const dbText = await dbRes.text();
+                window.database = jsyaml.load(dbText) || [];
+            } else {
+                window.database = [];
+                console.warn("database.yaml not found, initialized as empty array");
+            }
+            
+            if (settingsRes.ok) {
+                const settingsText = await settingsRes.text();
+                window.setting = jsyaml.load(settingsText) || {};
+            } else {
+                window.setting = { categories: ["All"] };
+                console.warn("setting.yaml not found, using default settings");
+            }
+            
+            console.log("YAML data loaded directly:", {
+                database: window.database,
+                setting: window.setting
+            });
+        } catch (e) {
+            console.error("Failed to load YAML data:", e);
+            window.database = [];
+            window.setting = { categories: ["All"] };
+        }
+    }
+    
+    // Ensure data is loaded before app script runs
+    window.dataPromise = loadData();
+    </script>
     <script src="js/index.js"></script>
 </body>
 </html>

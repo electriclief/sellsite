@@ -1,9 +1,7 @@
-import yaml
-import os
 from PIL import Image
-import json
-import shutil
+import os
 import time
+import yaml
 
 # Configurations
 # Get the absolute path to the 'sellsite' root directory (parent of 'builder')
@@ -112,24 +110,7 @@ def main():
     with open(DATABASE_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(updated_items, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
     
-    # Export to JS for CORS-free local viewing
-    export_to_js(updated_items, categories)
-    
     print(f"Processed {len(updated_items)} items.")
-
-def export_to_js(items, categories):
-    """Save data as JS files to bypass CORS on local file:// access."""
-    db_js_path = os.path.join(BASE_DIR, 'docs', 'database.js')
-    setting_js_path = os.path.join(BASE_DIR, 'docs', 'setting.js')
-    
-    with open(db_js_path, 'w', encoding='utf-8') as f:
-        f.write(f"window.database = {json.dumps(items, indent=2, ensure_ascii=False)};")
-    
-    settings_data = {'categories': categories}
-    with open(setting_js_path, 'w', encoding='utf-8') as f:
-        f.write(f"window.setting = {json.dumps(settings_data, indent=2, ensure_ascii=False)};")
-    
-    print("Exported data to JS files.")
 
 if __name__ == "__main__":
     main()

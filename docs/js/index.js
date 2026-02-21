@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Wait for YAML data to be fetched if promise exists
+    if (window.dataPromise) {
+        await window.dataPromise;
+    }
+
     const app = document.getElementById('app');
     const logoLink = document.getElementById('logo-link');
     const itemCardTemplate = document.getElementById('item-card-template');
@@ -8,29 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let data = window.database || [];
     let categories = (window.setting && window.setting.categories) ? window.setting.categories : ["All"];
-
-    // Fetch and parse YAML data as fallback
-    if (data.length === 0 || categories.length === 1) {
-        try {
-            const [dbResponse, settingsResponse] = await Promise.all([
-                fetch("database.yaml"),
-                fetch("setting.yaml")
-            ]);
-
-            if (dbResponse.ok) {
-                const dbText = await dbResponse.text();
-                data = jsyaml.load(dbText) || [];
-            }
-
-            if (settingsResponse.ok) {
-                const settingsText = await settingsResponse.text();
-                const settings = jsyaml.load(settingsText) || {};
-                categories = settings.categories || ["All"];
-            }
-        } catch (error) {
-            console.warn("Could not fetch YAML files, using script-injected data instead (this is normal for local file:// access).", error);
-        }
-    }
 
     // Populate filter dropdown
     if (categoryFilter) {
