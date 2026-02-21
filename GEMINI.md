@@ -26,11 +26,12 @@ Create a "duct tape and glue" themed marketplace for selling Jim's items.
 - [x] Initialize git repository in \sellsite
 
 ### Step 2: Build the Gradio Builder
-- [ ] Create the main builder.py file in \sellsite\builder
-- [ ] Implement item creation interface with Gradio
-- [ ] Add image upload functionality
-- [ ] Add product details form
-- [ ] Implement item saving to local storage/database
+- [x] Create the main builder.py file in \sellsite\builder
+- [x] Implement item creation interface with Gradio
+- [x] Add image upload functionality
+- [x] Add product details form
+- [x] Implement item saving to local storage/database
+- [x] Added JS export to bypass CORS (database.js, setting.js)
 
 ### Step 3: Create Frontend
 - [x] Create HTML structure for item display
@@ -38,6 +39,7 @@ Create a "duct tape and glue" themed marketplace for selling Jim's items.
 - [x] Create JavaScript for rendering items
 - [x] Add clickable item cards and Lot # display
 - [x] Implement URL-based navigation (?lot=)
+- [x] Resolve CORS issue for local file:// access
 - [ ] Add cart functionality
 
 ### Step 4: Integration
