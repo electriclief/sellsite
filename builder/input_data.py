@@ -123,19 +123,19 @@ def create_item(image_paths, name, price, description, categories):
             "### Selected Categories: All",
         )
 
-    # Process images immediately (resize and move to docs/images)
-    processed_images = []
-    if image_paths:
-        for path in image_paths:
-            proc_path = update_site_data.process_image(path)
-            if proc_path:
-                processed_images.append(proc_path)
-
     # Get and update lot number
     settings = load_settings()
     last_lot = settings.get("last_lot_number", 0)
     next_lot = last_lot + 1
     lot_number_str = f"{next_lot:04d}"
+
+    # Process images immediately (resize and move to docs/images)
+    processed_images = []
+    if image_paths:
+        for i, path in enumerate(image_paths):
+            proc_path = update_site_data.process_image(path, lot_number=lot_number_str, index=i+1)
+            if proc_path:
+                processed_images.append(proc_path)
 
     # Create item dictionary with images as an array
     item = {

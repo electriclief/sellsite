@@ -21,6 +21,9 @@
                 905-999-9999 | <a href="mailto:jim@gmail.com">jim@gmail.com</a>
             </div>
         </div>
+        <div class="eagle-container">
+            <img src="images/eagle.jpg" alt="Eagle" id="header-eagle">
+        </div>
     </header>
 
     <main id="app">
@@ -38,7 +41,6 @@
             <div class="item-info">
                 <h3 class="item-name"></h3>
                 <div class="item-price"></div>
-                <p class="item-description"></p>
             </div>
             <img src="" alt="" class="item-image">
         </div>
@@ -58,7 +60,7 @@
                     <div class="detail-lot"></div>
                     <h2 class="detail-name"></h2>
                     <p class="detail-price"></p>
-                    <p class="detail-description"></p>
+                    <div class="detail-description"></div>
                 </div>
                 <div class="image-gallery">
                     <!-- Images will be inserted here -->
@@ -68,6 +70,7 @@
     </template>
 
     <!-- Load data first, then app logic -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="js/dataobject.js"></script>
     <script src="js/index.js"></script>
 </body>

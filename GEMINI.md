@@ -50,3 +50,6 @@ Create a "duct tape and glue" themed marketplace for selling Jim's items.
 - [ ] Test item display
 - [ ] Deploy to GitHub Pages
 - [ ] Verify functionality
+
+## Technical Notes
+- **Server Binding**: The builder application (`input_data.py`) must be hardcoded to `192.168.1.100` to ensure local network accessibility for mobile devices.

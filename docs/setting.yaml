@@ -1,11 +1,11 @@
-jim_phone: "555-0199"
-jim_email: "jim@jimsshop.com"
+jim_phone: 555-0199
+jim_email: jim.s.visser@gmail.com
 categories:
-  - "All"
-  - "Computers"
-  - "Computer Parts"  
-  - "Hard Drives"
-  - "Ram"
-  - "Laptops"
-  - "Desktops"
-last_lot_number: 2
+- All
+- Computers
+- Computer Parts
+- Hard Drives
+- Ram
+- Laptops
+- Desktops
+last_lot_number: 9

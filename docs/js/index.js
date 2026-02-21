@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             card.querySelector('.item-name').textContent = item.name;
             card.querySelector('.item-price').textContent = `$${parseFloat(item.price).toFixed(2)}`;
-            card.querySelector('.item-description').textContent = item.description;
 
             card.addEventListener('click', () => renderDetail(index));
 
@@ -80,7 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
         detail.querySelector('.detail-lot').textContent = `Lot #${lotNumber}`;
         detail.querySelector('.detail-name').textContent = item.name;
         detail.querySelector('.detail-price').textContent = `$${parseFloat(item.price).toFixed(2)}`;
-        detail.querySelector('.detail-description').textContent = item.description;
+        
+        const descriptionDiv = detail.querySelector('.detail-description');
+        if (typeof marked !== 'undefined') {
+            descriptionDiv.innerHTML = marked.parse(item.description || '');
+        } else {
+            descriptionDiv.textContent = item.description;
+        }
 
         // Navigation Logic
         const prevButton = detail.querySelector('.prev-button');

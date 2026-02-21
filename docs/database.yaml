@@ -1,16 +1,291 @@
 - image_path: ''
   name: jimface
   price: 500
-  description: a picture of jims face
+  description: '## lets see if this works
+
+
+    - this is a test
+
+    - looks good!
+
+    '
   'lot #': '0001'
   Categories:
   - All
 - images:
-  - images/ThePrimeDirective_Qwen2_1771422964121.png
-  - images/Jim_720_480_1771422964441.png
+  - images/lot0002_01.png
+  - images/lot0002_02.png
   name: This is better
   price: 1000
   description: way better
   'lot #': '0002'
+  Categories:
+  - All
+- images:
+  - images/lot0000_01.jpg
+  - images/lot0000_02.jpg
+  - images/lot0000_03.jpg
+  name: Asus Intel i7 (4th Gen), 8GB RAM, 931GB HD
+  price: 150
+  description: "## \U0001F525 **ASUS LAPTOP – Running \"Windows Tiny 11\" – $150**\n\
+    ---\n\n### Is this the right computer for you? *(Plain English)*\n\nThink of this\
+    \ machine as a **lightweight workhorse**. It’s built for everyday life, not high-end\
+    \ gaming.\n\n---\n\n### ✅ What it does:\n- Perfect for **browsing the internet**\n\
+    - Watching movies (**Netflix / YouTube**)\n- Writing school papers\n- Checking\
+    \ email\n- Listening to Spotify\n\n### ❌ What it doesn't do:\n- It is **not a\
+    \ gaming PC**\n- It won’t run the latest heavy video games *(like Cyberpunk or\
+    \ high-end shooters)*\n- It **does** handle web-based games just fine\n\n---\n\
+    \n### \U0001F4A1 Why it’s special:\nIt runs on a stripped-down version of Windows\
+    \ 11 called **\"Tiny 11.\"**  \nThis removes the heavy, slow programs from new\
+    \ computers, making it feel **incredibly snappy and responsive** for an older\
+    \ machine.\n\n---\n\n## \U0001F9E0 The Nitty Gritty *(Condensed Specs)*\n\n- **OS:**\
+    \ Windows 11 Pro 64-bit *(Custom \"Tiny 11\" Build – very fast!)*\n- **Processor:**\
+    \ Intel Core i7 (4th Gen) – The \"brain\" that handles all the multitasking\n\
+    - **Memory (RAM):** 8GB – Plenty of room to keep several tabs open at once\n-\
+    \ **Storage:** 931GB Seagate Hard Drive – Tons of space for photos, music, and\
+    \ documents\n- **Graphics:** Intel HD Graphics – Great for watching video and\
+    \ standard screen usage\n- **Screen:** 1600x900 Resolution\n\n---\n\n## \U0001F4B0\
+    \ Grab this Deal!\n\n- **Price:** $150\n- **Contact:** Call or Email to co-ordinate\
+    \ a pickup!\n\n''lot #'': ''0004''\n"
+  Categories:
+  - All
+- images:
+  - images/lot0005_01.jpg
+  - images/lot0005_02.jpg
+  - images/lot0005_03.jpg
+  - images/lot0005_04.jpg
+  name: HP AMD E2-9000e (4C/2G), 4GB RAM, 100GB HD
+  price: 150
+  description: '# **✨ Your Budget-Friendly Linux Mint Powerhouse! ✨**
+
+    **Perfect for:** Light tasks, web browsing, office work, media playback, and basic
+    gaming (if you''re okay with older titles).
+
+
+    **Not for:** Heavy multitasking, video editing, or demanding modern software.
+
+
+    ### **🔥 What This Little Machine CAN Do:**
+
+    ✅ **Run Linux Mint smoothly** – Fast, lightweight, and easy to use.
+
+    ✅ **Browse the web** – Chrome, Firefox, or Edge (no issues).
+
+    ✅ **Office work** – Word, spreadsheets, and emails (no problem).
+
+    ✅ **Play media** – Watch movies, listen to music, or stream (4K if needed).
+
+    ✅ **Basic gaming** – Older games (Minecraft, Stardew Valley, etc.).
+
+    ✅ **Light photo editing** – GIMP or simple photo organization.
+
+    ✅ **Home server** – Host a NAS, Plex, or small file server.
+
+
+    ### **💻 Technical Specs (Quick & Simple):**
+
+    - **CPU:** AMD E2-9000e (4 cores, 2C+2G) – *Great for light tasks!*
+
+    - **RAM:** **4GB** – *Enough for basic use, but not for heavy multitasking.*
+
+    - **Storage:** **100GB HDD** – *Good for essentials, but not for large files.*
+
+    - **Graphics:** **Radeon R2 (Integrated)** – *Decent for 1080p media playback.*
+
+    - **OS:** **Linux Mint (Cinnamon Edition)** – *User-friendly, no Windows needed!*
+
+    - **Condition:** **Working, clean, and ready to go!**
+
+    '
+  'lot #': '0005'
+  Categories:
+  - All
+- images:
+  - images/lot0006_01.jpg
+  - images/lot0006_02.jpg
+  - images/lot0006_03.jpg
+  name: HP Intel i3-3110M (2C/4T), 8GB RAM, 931GB HD
+  price: 80
+  description: "# **✨ Upgrade Your Workspace – Reliable & Ready-to-Roll PC! ✨**\n\n\
+    ---\n### **\U0001F4CC Perfect For:**\n✅ **Everyday tasks** – Browsing, emails,\
+    \ documents, streaming, and light gaming.\n✅ **Home office** – Running Microsoft\
+    \ Office, Zoom, or video calls smoothly.\n✅ **Students & creators** – Basic photo\
+    \ editing, video calls, and research.\n✅ **Budget-friendly upgrade** – A solid\
+    \ starter PC for those who want something dependable *without* the bloat.\n\n\
+    ---\n### **⚠️ What It *Can’t* Do:**\n❌ **Heavy gaming** (e.g., modern AAA titles\
+    \ like *Cyberpunk 2077* or *Assassin’s Creed*).\n❌ **Video editing/production**\
+    \ (e.g., 4K editing, rendering, or complex software like Adobe Premiere Pro).\n\
+    ❌ **Virtualization** (running multiple OSes simultaneously).\n❌ **Overclocking**\
+    \ (this is a stock, out-of-box system).\n\n---\n### **\U0001F4BB Specs at a Glance:**\n\
+    **\U0001F5A5️ Processor:** Intel Core i3-3110M (2.4GHz, 2 cores/4 threads) – *Great\
+    \ for multitasking!*\n**\U0001F4BE RAM:** 8GB DDR3 (plenty for web browsing, office\
+    \ work, and light apps).\n**\U0001F4BE Storage:** 931GB HDD – *Massive space for\
+    \ files, photos, and documents!*\n**\U0001F5A5️ Graphics:** Intel HD 4000 – *Handles\
+    \ 1080p streaming and light gaming (e.g., Minecraft, League of Legends).*\n**\U0001F4F7\
+    \ Display:** Works with any monitor (currently paired with a 1600x900 screen).\n\
+    **\U0001F50C Ports:** DVD-RAM drive, USB, HD Audio – *Ready for peripherals!*\n\
+    **\U0001F50B OS:** Windows 11  \n"
+  'lot #': '0006'
+  Categories:
+  - All
+- images:
+  - images/lot0007_01.jpg
+  - images/lot0007_02.jpg
+  - images/lot0007_03.jpg
+  name: HP AMD Turion 64 (2C), 4GB DDR2 RAM, 232GB HD
+  price: 150
+  description: '# **✨ Up for Sale: Reliable & Ready-to-Use Laptop ✨**
+
+    **Perfect for everyday tasks, light gaming, or a budget-friendly upgrade!**
+
+
+    ---
+
+    ### **📌 What This Computer Can Do:**
+
+    ✅ **Great for:**
+
+    - Office work (Word, Excel, browsing)
+
+    - Light photo editing (basic adjustments)
+
+    - Streaming movies/TV shows
+
+    - Web browsing & social media
+
+    - Simple gaming (older titles, low settings)
+
+    - Learning & educational use
+
+
+    ❌ **Not for:**
+
+    - Heavy video editing (e.g., 4K, complex projects)
+
+    - High-end gaming (modern AAA titles)
+
+    - Running resource-heavy software (e.g., CAD, professional suites)
+
+
+    ---
+
+    ### **🔧 Technical Specs (Simple & Straightforward):**
+
+    **Processor:** AMD Turion 64 ×2 Mobile TL-60 (Dual-Core, 65nm)
+
+    **Memory:** 4GB DDR2 RAM (Dual-Channel, 333MHz)
+
+    **Storage:** 232GB HDD (ATA/SATA, Toshiba MK2546GSX)
+
+    **Display:** 1024×768 (Generic NVIDIA graphics)
+
+    **Audio:** High Definition Audio
+
+    **Optical Drive:** DVD/CD (Simtype DVE)
+
+    **Motherboard:** Wistron 30D6 (Socket A)
+
+
+    ---
+
+    ### **💡 Why Buy?**
+
+    - **Budget-friendly** for basic needs.
+
+    - **Functional** for students, home users, or light tasks.
+
+    - **No bloatware**—just a clean, usable machine.
+
+    '
+  'lot #': '0007'
+  Categories:
+  - All
+- images:
+  - images/lot0008_01.jpg
+  - images/lot0008_02.jpg
+  - images/lot0008_03.jpg
+  - images/lot0008_04.jpg
+  name: Thinkpad AMD E-350 (1C), 1.6GB RAM, 300GB HD
+  price: 90
+  description: '# **💀 "The Last Stand of the AMD E-350" – A Relic of the Past (But
+    Still Useful for Some Things) 💀**
+
+
+    **For the people who still believe "slow" is a feature:**
+
+
+    This isn’t a *gaming monster*, a *content creation powerhouse*, or even a *modern
+    office tool*—it’s a **barely breathing, wheezing relic** from the days when "1.6GB
+    of RAM" was considered *cutting-edge*. But hey, if you need a computer to **surf
+    the web at a snail’s pace, open one document at a time, and pretend you’re not
+    waiting for Windows to load**, this might be your kind of machine.
+
+
+    ---
+
+
+    ### **🔧 What It *Can* Do (With Extreme Patience):**
+
+    ✔ **Basic web browsing** (if you don’t mind waiting for YouTube to buffer like
+    it’s 2005)
+
+    ✔ **Word processing** (but only one document at a time—no multitasking)
+
+    ✔ **Light photo editing** (if you’re okay with Photoshop taking *hours* to open)
+
+    ✔ **Running Linux Mint (Cinnamon edition)**—because even this thing can pretend
+    to be *modern* sometimes
+
+    ✔ **Being a paperweight** (if you just want something to sit on your desk while
+    you stare at a faster computer)
+
+
+    ### **🚫 What It *Cannot* Do (No Matter How Much You Beg It):**
+
+    ❌ **Gaming** (even *Minecraft* will make you question your life choices)
+
+    ❌ **Running modern software** (Adobe Suite? Ha! Try waiting *forever*)
+
+    ❌ **Multitasking** (if you open two tabs, it might just *die*)
+
+    ❌ **Being a server** (unless you enjoy watching it slowly collapse under the weight
+    of its own existence)
+
+
+    ---
+
+
+    ### **📋 Technical Specs (Because Someone Has to Know):**
+
+    - **CPU:** AMD E-350 (2010-era, single-core, *painfully* slow)
+
+    - **RAM:** 1.6GB (enough to make you *miss* the 90s)
+
+    - **Storage:** 300GB HDD (spinning rust, *very* loud, *very* slow)
+
+    - **OS:** Linux Mint 21.3 (LXQt edition—because even this thing deserves *some*
+    dignity)
+
+    - **Condition:** **Used, but still standing** (like a zombie at a funeral)
+
+    '
+  'lot #': 0008
+  Categories:
+  - All
+- images:
+  - images/lot0009_01.jpg
+  - images/lot0009_02.jpg
+  - images/lot0009_03.jpg
+  name: Dell Pentium T440 (2.2GHz), 4GB RAM, 135GB HD
+  price: 90
+  description: "\U0001F31F **Your Digital Companion Awaits!** \U0001F31F  \nWelcome\
+    \ to your new digital assistant! This machine handles transactions, manages files,\
+    \ and keeps things smooth—*but not for fixing broken keyboards or software glitches*.\
+    \  \n\n**What It Can Do:**  \n✅ Process payments & transactions  \n✅ Store files\
+    \ securely  \n✅ Run apps effortlessly  \n\n**What It Can’t Do:**  \n❌ Repair hardware\
+    \  \n❌ Handle complex tasks  \n❌ Fix software errors  \n\n**Specs Simplified:**\
+    \  \n- CPU: Pentium T440 @ 2.2GHz  \n- Memory: 4GB RAM  \n- Storage: 135GB HDD\
+    \  \nContact us now to start your digital journey!  \n"
+  'lot #': 0009
   Categories:
   - All

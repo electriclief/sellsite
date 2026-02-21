@@ -77,6 +77,25 @@ header {
     font-size: 0.8rem;
 }
 
+.eagle-container {
+    flex-shrink: 0;
+    transform: rotate(5deg);
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));
+}
+
+#header-eagle {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.eagle-container svg {
+    display: block;
+}
+
 main {
     max-width: 1200px;
     margin: 3rem auto;
